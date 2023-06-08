@@ -6,8 +6,8 @@ pipeline {
     stages {
         stage('Stop AWS EC2 Instance') {
             steps {
-                sh 'chmod +x stop_ec2_selenium.sh'
-                sh './stop_ec2_selenium.sh'
+                sh 'chmod +x stop-ec2.sh'
+                sh './stop-ec2.sh'
             }
         }
     }
