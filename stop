@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+    environment {
+        AWS_DEFAULT_REGION="us-east-1"
+    }
+    stages {
+        stage('Stop AWS EC2 Instance') {
+            steps {
+                sh 'chmod +x stop_ec2_selenium.sh'
+                sh './stop_ec2_selenium.sh'
+            }
+        }
+    }
+}
