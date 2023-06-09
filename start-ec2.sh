@@ -1,4 +1,4 @@
-instance_id='i-01f7358fded864b8f'
+instance_id='i-0456c30d3ffd6aad3'
 aws --version
 echo "EC2 Instance Id : $instance_id"
 echo "  --> Fetching Instance $instance_id status."
