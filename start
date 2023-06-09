@@ -22,10 +22,5 @@ pipeline {
                 }
             }
         }
-        stage('Trigger test Job') {
-            steps {
-                build job: "run-tests", wait: true
-            }
-        }
     }
 }
