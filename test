@@ -1,0 +1,10 @@
+pipeline {
+    agent any
+    stages {
+        stage('Start Tests') {
+            steps {
+               echo 'Test running'
+            }
+        }
+     }
+  }   
