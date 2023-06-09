@@ -14,9 +14,9 @@ pipeline {
             steps {
                 sshagent (credentials: ['selenium-ec2']){
                      // Transfer docker-compose file to EC2 instance
-                    sh 'scp -o StrictHostKeyChecking=no docker-compose-seleniumgrid-ec2.yml ec2-user@11.0.1.102:/tmp'
+                    sh 'scp -o StrictHostKeyChecking=no docker-compose.yml ec2-user@172.31.40.62:/tmp'
                      // SSH into EC2 instance and start Docker
-                    sh 'ssh -o StrictHostKeyChecking=no ec2-user@11.0.1.102 "docker-compose -f /tmp/docker-compose-seleniumgrid-ec2.yml up -d"'
+                    sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.40.62 "docker-compose -f /tmp/docker-compose.yml up -d"'
                 }
             }
         }
