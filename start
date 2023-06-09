@@ -13,6 +13,8 @@ pipeline {
         stage('Start Selenium Grid in the EC2 Instance') {
             steps {
                 sshagent (credentials: ['selenium-ec2']){
+                     // Remove docker-compose file if present
+                    sh 'rm -f /tmp/docker-compose.yml'
                      // Transfer docker-compose file to EC2 instance
                     sh 'scp -o StrictHostKeyChecking=no docker-compose.yml ubuntu@172.31.40.62:/tmp'
                      // SSH into EC2 instance and start Docker
@@ -20,7 +22,7 @@ pipeline {
                 }
             }
         }
-        stage('triggertestJob') {
+        stage('Trigger test Job') {
             steps {
                 build job: "run-tests", wait: true
             }
