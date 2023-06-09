@@ -1,9 +1,19 @@
 pipeline {
     agent any
     stages {
+        stage('Trigger Selenium EC2 Start Job') {
+            steps {
+                build job: "start-ec2", wait: true
+            }
+        }
         stage('Start Tests') {
             steps {
                echo 'Test running'
+            }
+        }
+        stage('Trigger Selenium EC2 Stop Job') {
+            steps {
+                build job: "stop-ec2", wait: true
             }
         }
      }
